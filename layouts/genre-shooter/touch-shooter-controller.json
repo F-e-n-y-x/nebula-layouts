@@ -6,13 +6,15 @@
   "meta": {
     "author": "Nebula",
     "aspect": 2.17,
-    "name": "Shooter: PUBG-style (controller)",
-    "description": "PUBG Mobile's layout for any XInput shooter: RT fire (left and right, drag the right one to aim), LT aim (tap or hold), push the stick past the ring to sprint (L3), drag up to lock the run. A jump, B crouch (hold for prone), X reload / use, Y swap, LB / RB peek, R3 melee.",
+    "name": "Touch shooter · controller",
+    "description": "Two-thumb shooter layout for any game that uses a controller. Floating move stick (push past the ring to sprint, drag up to lock the run), swipe anywhere on the right to look, fire on both sides (the right one aims while you drag it), aim, jump, crouch (hold for prone), reload, swap, melee and lean.",
     "device": "phone",
     "target": "xinput",
     "tags": [
       "shooter",
-      "pubg-style",
+      "first-person",
+      "third-person",
+      "controller",
       "touch-only"
     ]
   },
@@ -38,7 +40,9 @@
     {
       "role": "fire",
       "kind": "trigger",
-      "bindings": ["rt"],
+      "bindings": [
+        "rt"
+      ],
       "w": 64,
       "h": 64,
       "x": 0.075,
@@ -49,7 +53,9 @@
     {
       "role": "fire",
       "kind": "trigger",
-      "bindings": ["rt"],
+      "bindings": [
+        "rt"
+      ],
       "w": 80,
       "h": 80,
       "x": 0.8,
@@ -62,7 +68,9 @@
       "mode": "mixed",
       "role": "ads",
       "kind": "trigger",
-      "bindings": ["lt"],
+      "bindings": [
+        "lt"
+      ],
       "w": 58,
       "h": 58,
       "x": 0.925,
@@ -73,7 +81,9 @@
     {
       "role": "jump",
       "kind": "button",
-      "bindings": ["pad:4096"],
+      "bindings": [
+        "pad:4096"
+      ],
       "w": 54,
       "h": 54,
       "x": 0.895,
@@ -84,7 +94,9 @@
     {
       "role": "crouch",
       "kind": "button",
-      "bindings": ["pad:8192"],
+      "bindings": [
+        "pad:8192"
+      ],
       "w": 54,
       "h": 54,
       "x": 0.905,
@@ -101,16 +113,20 @@
       "y": 0.9,
       "id": "prone",
       "label": "Prone",
-      "steps": [{
-        "holdMs": 800,
-        "gapMs": 40,
-        "binding": "pad:8192"
-      }]
+      "steps": [
+        {
+          "holdMs": 800,
+          "gapMs": 40,
+          "binding": "pad:8192"
+        }
+      ]
     },
     {
       "role": "reload",
       "kind": "button",
-      "bindings": ["pad:16384"],
+      "bindings": [
+        "pad:16384"
+      ],
       "w": 50,
       "h": 50,
       "x": 0.69,
@@ -121,7 +137,9 @@
     {
       "role": "switch",
       "kind": "button",
-      "bindings": ["pad:32768"],
+      "bindings": [
+        "pad:32768"
+      ],
       "w": 48,
       "h": 48,
       "x": 0.585,
@@ -132,7 +150,9 @@
     {
       "role": "interact",
       "kind": "button",
-      "bindings": ["pad:16384"],
+      "bindings": [
+        "pad:16384"
+      ],
       "w": 48,
       "h": 48,
       "x": 0.62,
@@ -143,7 +163,9 @@
     {
       "role": "free_look",
       "kind": "button",
-      "bindings": ["none"],
+      "bindings": [
+        "none"
+      ],
       "w": 50,
       "h": 50,
       "x": 0.69,
@@ -156,7 +178,9 @@
       "role": "peek_left",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:256"],
+      "bindings": [
+        "pad:256"
+      ],
       "w": 72,
       "h": 40,
       "x": 0.26,
@@ -168,7 +192,9 @@
       "role": "peek_right",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:512"],
+      "bindings": [
+        "pad:512"
+      ],
       "w": 72,
       "h": 40,
       "x": 0.74,
@@ -178,7 +204,9 @@
     },
     {
       "kind": "button",
-      "bindings": ["pad:128"],
+      "bindings": [
+        "pad:128"
+      ],
       "w": 44,
       "h": 44,
       "x": 0.925,
@@ -190,7 +218,9 @@
       "role": "menu",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:32"],
+      "bindings": [
+        "pad:32"
+      ],
       "w": 60,
       "h": 34,
       "x": 0.43,
@@ -202,7 +232,9 @@
       "role": "menu",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:16"],
+      "bindings": [
+        "pad:16"
+      ],
       "w": 60,
       "h": 34,
       "x": 0.57,

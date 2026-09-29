@@ -4,21 +4,23 @@
   "updated": "2026-09-29",
   "layouts": [
     {
-      "id": "generic/pubg-style-controller",
-      "name": "Shooter: PUBG-style (controller)",
+      "id": "genre-shooter/touch-shooter-controller",
+      "name": "Touch shooter · controller",
       "author": "Nebula",
       "target": "xinput",
       "device": "phone",
       "aspect": 2.17,
-      "description": "PUBG Mobile's layout for any XInput shooter: RT fire (left and right, drag the right one to aim), LT aim (tap or hold), push the stick past the ring to sprint (L3), drag up to lock the run. A jump, B crouch (hold for prone), X reload / use, Y swap, LB / RB peek, R3 melee.",
+      "description": "Two-thumb shooter layout for any game that uses a controller. Floating move stick (push past the ring to sprint, drag up to lock the run), swipe anywhere on the right to look, fire on both sides (the right one aims while you drag it), aim, jump, crouch (hold for prone), reload, swap, melee and lean.",
       "tags": [
         "shooter",
-        "pubg-style",
+        "first-person",
+        "third-person",
+        "controller",
         "touch-only"
       ],
-      "path": "layouts/generic/pubg-style-controller.json",
-      "size": 4181,
-      "sha256": "f4c220e51c2f88bab35c1494cc5974e1cbd6f9ae2c6005c6999f2f22bd1a7e39",
+      "path": "layouts/genre-shooter/touch-shooter-controller.json",
+      "size": 4496,
+      "sha256": "1a695bc347a1d64fc3d2ef2022397fdd8f052da8dda94d2200cb7fe02a51c89b",
       "controls": 16,
       "preview": [
         [
@@ -152,21 +154,23 @@
       ]
     },
     {
-      "id": "generic/pubg-style-keyboard-mouse",
-      "name": "Shooter: PUBG-style (keyboard+mouse)",
+      "id": "genre-shooter/touch-shooter-keyboard-mouse",
+      "name": "Touch shooter · keyboard & mouse",
       "author": "Nebula",
       "target": "kbm",
       "device": "phone",
       "aspect": 2.17,
-      "description": "PUBG on PC from a phone: the stick is WASD (Shift past the ring, drag up to lock the run), swipe to look with the mouse, LMB fire (drag the right one to aim), RMB aim, Space, C, Z, R, F, Q / E peek, hold the eye for Alt free look, Tab bag, M map.",
+      "description": "Two-thumb shooter layout for games played with keyboard and mouse. The stick is WASD (Shift past the ring, drag up to lock the run), swipe to look with the mouse, left and right mouse buttons on both sides, Space, C, Z, R, F, Q/E lean, Alt free look, Tab, M and Esc.",
       "tags": [
         "shooter",
-        "pubg-style",
+        "first-person",
+        "third-person",
+        "keyboard-mouse",
         "touch-only"
       ],
-      "path": "layouts/generic/pubg-style-keyboard-mouse.json",
-      "size": 4265,
-      "sha256": "0f32c056de9dd79d4e1745f0ca90379f228106b4ab61ff5b7fdd4be1faab09b9",
+      "path": "layouts/genre-shooter/touch-shooter-keyboard-mouse.json",
+      "size": 4570,
+      "sha256": "5792ae7518507ea38ea27f7302d479284ec64877b3c0c8cc3c7130d7e8acd09f",
       "controls": 16,
       "preview": [
         [
@@ -300,8 +304,8 @@
       ]
     },
     {
-      "id": "gta-v/pubg-style",
-      "name": "GTA V: PUBG-style",
+      "id": "gta-v/touch-controls",
+      "name": "GTA V · touch controls",
       "author": "Nebula",
       "game": {
         "steamAppId": 271590,
@@ -310,16 +314,17 @@
       "target": "xinput",
       "device": "phone",
       "aspect": 2.17,
-      "description": "Touch-only GTA V with GTA's controller map: RT shoot (left fire while you look, drag the right one to aim), LT aim, sprint (A) past the ring or locked, X jump, B reload, L3 stealth, Y car, LB weapon wheel, RB cover, R3 look behind. Swipe the right side to look (mouse look).",
+      "description": "Touch-only GTA V on GTA's own controller map: RT shoot (a second fire button on the left, and the right one aims while dragged), LT aim, sprint past the ring or locked, X jump, B reload, L3 stealth, Y enter vehicle, LB weapon wheel, RB cover, R3 look behind. Swipe the right side to look.",
       "tags": [
-        "gta",
+        "action-adventure",
+        "third-person",
         "shooter",
-        "pubg-style",
+        "controller",
         "touch-only"
       ],
-      "path": "layouts/gta-v/pubg-style.json",
-      "size": 4127,
-      "sha256": "563c430ecb08f8f76820a114cea5e91a41126d11ce607c6675b5cdc605c00729",
+      "path": "layouts/gta-v/touch-controls.json",
+      "size": 4422,
+      "sha256": "cce76c0d3a5df4927e910e3ee1304add9732befd6b3a364363c5c13203f395ef",
       "controls": 16,
       "preview": [
         [

@@ -6,13 +6,15 @@
   "meta": {
     "author": "Nebula",
     "aspect": 2.17,
-    "name": "Shooter: PUBG-style (keyboard+mouse)",
-    "description": "PUBG on PC from a phone: the stick is WASD (Shift past the ring, drag up to lock the run), swipe to look with the mouse, LMB fire (drag the right one to aim), RMB aim, Space, C, Z, R, F, Q / E peek, hold the eye for Alt free look, Tab bag, M map.",
+    "name": "Touch shooter · keyboard & mouse",
+    "description": "Two-thumb shooter layout for games played with keyboard and mouse. The stick is WASD (Shift past the ring, drag up to lock the run), swipe to look with the mouse, left and right mouse buttons on both sides, Space, C, Z, R, F, Q/E lean, Alt free look, Tab, M and Esc.",
     "device": "phone",
     "target": "kbm",
     "tags": [
       "shooter",
-      "pubg-style",
+      "first-person",
+      "third-person",
+      "keyboard-mouse",
       "touch-only"
     ]
   },
@@ -45,7 +47,9 @@
     {
       "role": "fire",
       "kind": "button",
-      "bindings": ["mouse:left"],
+      "bindings": [
+        "mouse:left"
+      ],
       "w": 64,
       "h": 64,
       "x": 0.075,
@@ -56,7 +60,9 @@
     {
       "role": "fire",
       "kind": "button",
-      "bindings": ["mouse:left"],
+      "bindings": [
+        "mouse:left"
+      ],
       "w": 80,
       "h": 80,
       "x": 0.8,
@@ -69,7 +75,9 @@
       "mode": "mixed",
       "role": "ads",
       "kind": "button",
-      "bindings": ["mouse:right"],
+      "bindings": [
+        "mouse:right"
+      ],
       "w": 58,
       "h": 58,
       "x": 0.925,
@@ -80,7 +88,9 @@
     {
       "role": "jump",
       "kind": "button",
-      "bindings": ["key:32"],
+      "bindings": [
+        "key:32"
+      ],
       "w": 54,
       "h": 54,
       "x": 0.895,
@@ -91,7 +101,9 @@
     {
       "role": "crouch",
       "kind": "button",
-      "bindings": ["key:67"],
+      "bindings": [
+        "key:67"
+      ],
       "w": 54,
       "h": 54,
       "x": 0.905,
@@ -102,7 +114,9 @@
     {
       "role": "prone",
       "kind": "button",
-      "bindings": ["key:90"],
+      "bindings": [
+        "key:90"
+      ],
       "w": 48,
       "h": 48,
       "x": 0.795,
@@ -113,7 +127,9 @@
     {
       "role": "reload",
       "kind": "button",
-      "bindings": ["key:82"],
+      "bindings": [
+        "key:82"
+      ],
       "w": 50,
       "h": 50,
       "x": 0.69,
@@ -124,7 +140,9 @@
     {
       "role": "switch",
       "kind": "button",
-      "bindings": ["wheel:down"],
+      "bindings": [
+        "wheel:down"
+      ],
       "w": 48,
       "h": 48,
       "x": 0.585,
@@ -135,7 +153,9 @@
     {
       "role": "interact",
       "kind": "button",
-      "bindings": ["key:70"],
+      "bindings": [
+        "key:70"
+      ],
       "w": 48,
       "h": 48,
       "x": 0.62,
@@ -146,7 +166,9 @@
     {
       "role": "free_look",
       "kind": "button",
-      "bindings": ["key:164"],
+      "bindings": [
+        "key:164"
+      ],
       "w": 50,
       "h": 50,
       "x": 0.69,
@@ -160,7 +182,9 @@
       "role": "peek_left",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["key:81"],
+      "bindings": [
+        "key:81"
+      ],
       "w": 72,
       "h": 40,
       "x": 0.26,
@@ -173,7 +197,9 @@
       "role": "peek_right",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["key:69"],
+      "bindings": [
+        "key:69"
+      ],
       "w": 72,
       "h": 40,
       "x": 0.74,
@@ -183,7 +209,9 @@
     },
     {
       "kind": "button",
-      "bindings": ["key:9"],
+      "bindings": [
+        "key:9"
+      ],
       "w": 44,
       "h": 44,
       "x": 0.925,
@@ -195,7 +223,9 @@
       "role": "menu",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["key:77"],
+      "bindings": [
+        "key:77"
+      ],
       "w": 60,
       "h": 34,
       "x": 0.43,
@@ -207,7 +237,9 @@
       "role": "menu",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["key:27"],
+      "bindings": [
+        "key:27"
+      ],
       "w": 60,
       "h": 34,
       "x": 0.57,

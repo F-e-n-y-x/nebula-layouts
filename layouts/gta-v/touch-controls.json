@@ -10,14 +10,15 @@
     },
     "author": "Nebula",
     "aspect": 2.17,
-    "name": "GTA V: PUBG-style",
-    "description": "Touch-only GTA V with GTA's controller map: RT shoot (left fire while you look, drag the right one to aim), LT aim, sprint (A) past the ring or locked, X jump, B reload, L3 stealth, Y car, LB weapon wheel, RB cover, R3 look behind. Swipe the right side to look (mouse look).",
+    "name": "GTA V · touch controls",
+    "description": "Touch-only GTA V on GTA's own controller map: RT shoot (a second fire button on the left, and the right one aims while dragged), LT aim, sprint past the ring or locked, X jump, B reload, L3 stealth, Y enter vehicle, LB weapon wheel, RB cover, R3 look behind. Swipe the right side to look.",
     "device": "phone",
     "target": "xinput",
     "tags": [
-      "gta",
+      "action-adventure",
+      "third-person",
       "shooter",
-      "pubg-style",
+      "controller",
       "touch-only"
     ]
   },
@@ -43,7 +44,9 @@
     {
       "role": "fire",
       "kind": "trigger",
-      "bindings": ["rt"],
+      "bindings": [
+        "rt"
+      ],
       "w": 64,
       "h": 64,
       "x": 0.075,
@@ -54,7 +57,9 @@
     {
       "role": "fire",
       "kind": "trigger",
-      "bindings": ["rt"],
+      "bindings": [
+        "rt"
+      ],
       "w": 80,
       "h": 80,
       "x": 0.8,
@@ -67,7 +72,9 @@
       "mode": "mixed",
       "role": "ads",
       "kind": "trigger",
-      "bindings": ["lt"],
+      "bindings": [
+        "lt"
+      ],
       "w": 58,
       "h": 58,
       "x": 0.925,
@@ -78,7 +85,9 @@
     {
       "role": "jump",
       "kind": "button",
-      "bindings": ["pad:16384"],
+      "bindings": [
+        "pad:16384"
+      ],
       "w": 54,
       "h": 54,
       "x": 0.895,
@@ -89,7 +98,9 @@
     {
       "role": "crouch",
       "kind": "button",
-      "bindings": ["pad:64"],
+      "bindings": [
+        "pad:64"
+      ],
       "w": 54,
       "h": 54,
       "x": 0.905,
@@ -100,7 +111,9 @@
     {
       "role": "reload",
       "kind": "button",
-      "bindings": ["pad:8192"],
+      "bindings": [
+        "pad:8192"
+      ],
       "w": 50,
       "h": 50,
       "x": 0.69,
@@ -111,7 +124,9 @@
     {
       "role": "switch",
       "kind": "button",
-      "bindings": ["pad:256"],
+      "bindings": [
+        "pad:256"
+      ],
       "w": 48,
       "h": 48,
       "x": 0.585,
@@ -122,7 +137,9 @@
     {
       "role": "interact",
       "kind": "button",
-      "bindings": ["pad:32768"],
+      "bindings": [
+        "pad:32768"
+      ],
       "w": 48,
       "h": 48,
       "x": 0.62,
@@ -133,7 +150,9 @@
     {
       "role": "free_look",
       "kind": "button",
-      "bindings": ["none"],
+      "bindings": [
+        "none"
+      ],
       "w": 50,
       "h": 50,
       "x": 0.69,
@@ -144,7 +163,9 @@
     },
     {
       "kind": "button",
-      "bindings": ["pad:128"],
+      "bindings": [
+        "pad:128"
+      ],
       "w": 44,
       "h": 44,
       "x": 0.925,
@@ -156,7 +177,9 @@
       "role": "menu",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:32"],
+      "bindings": [
+        "pad:32"
+      ],
       "w": 60,
       "h": 34,
       "x": 0.43,
@@ -168,7 +191,9 @@
       "role": "menu",
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:16"],
+      "bindings": [
+        "pad:16"
+      ],
       "w": 60,
       "h": 34,
       "x": 0.57,
@@ -179,7 +204,9 @@
     {
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:512"],
+      "bindings": [
+        "pad:512"
+      ],
       "w": 58,
       "h": 40,
       "x": 0.075,
@@ -190,7 +217,9 @@
     {
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:1"],
+      "bindings": [
+        "pad:1"
+      ],
       "w": 58,
       "h": 40,
       "x": 0.16,
@@ -201,7 +230,9 @@
     {
       "shape": "pill",
       "kind": "button",
-      "bindings": ["pad:8"],
+      "bindings": [
+        "pad:8"
+      ],
       "w": 58,
       "h": 40,
       "x": 0.245,
