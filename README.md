@@ -51,6 +51,8 @@ Tags make search work across games. Use a few of:
 | Touch shooter · controller | Any shooter that uses a controller: floating move stick with sprint and run-lock, look anywhere on the right, fire on both sides (the right one aims while dragged), aim, jump, crouch/prone, reload, lean |
 | Touch shooter · keyboard & mouse | The same scheme for games played with keyboard and mouse (the stick is WASD, mouse look) |
 | GTA V · touch controls | Grand Theft Auto V on its own controller map, on foot and in vehicles |
+| GTA V · on foot, vehicle, aircraft | A version 2 set on the game's controller map: On foot, Vehicle (steering stick, gas and brake pedals), Aircraft (flight stick, throttle, yaw), Parachute and Phone layouts, switched from the top centre |
+| GTA V · on foot, vehicle, aircraft (keyboard) | The same set on the game's default PC keys and mouse, with weapon slots 1–9 |
 
 ## The format
 

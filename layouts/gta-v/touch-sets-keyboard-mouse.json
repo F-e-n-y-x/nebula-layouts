@@ -1,0 +1,1858 @@
+{
+  "format": "nebula-layout",
+  "version": 2,
+  "meta": {
+    "name": "GTA V · on foot, vehicle, aircraft (keyboard)",
+    "author": "Nebula",
+    "game": {
+      "name": "Grand Theft Auto V",
+      "steamAppId": 271590
+    },
+    "target": "kbm",
+    "device": "phone",
+    "aspect": 2.17,
+    "description": "The same five touch layouts on GTA V's default PC keys: WASD move with Shift sprint, mouse look and buttons, weapon slots 1-9, Tab wheel, G throw, E use, Alt characters, Caps Lock special, M interaction menu. Vehicle steering is A/D (digital); aircraft use the numpad (Num Lock on). Parachute and phone too. The controller version steers more smoothly.",
+    "tags": [
+      "action-adventure",
+      "third-person",
+      "shooter",
+      "keyboard-mouse",
+      "touch-only"
+    ]
+  },
+  "set": {
+    "start": "on-foot",
+    "cycle": [
+      "on-foot",
+      "vehicle",
+      "aircraft"
+    ]
+  },
+  "layouts": [
+    {
+      "id": "on-foot",
+      "name": "On foot",
+      "settings": {
+        "outside": "look",
+        "look": "mouse"
+      },
+      "landscape": [
+        {
+          "id": "move",
+          "kind": "zone",
+          "x": 0.22,
+          "y": 0.62,
+          "w": 0.44,
+          "h": 0.76,
+          "label": "Move",
+          "bindings": [
+            "key:0x57",
+            "key:0x53",
+            "key:0x41",
+            "key:0x44"
+          ],
+          "shape": "square",
+          "zone": "floating_stick",
+          "role": "move",
+          "deadzone": 0.1,
+          "opacity": 0.25,
+          "runLock": true,
+          "sprint": "key:0xA0",
+          "stick": "keys"
+        },
+        {
+          "id": "fire-left",
+          "kind": "button",
+          "x": 0.075,
+          "y": 0.36,
+          "w": 60,
+          "h": 60,
+          "label": "FIRE",
+          "bindings": [
+            "mouse:left"
+          ],
+          "role": "fire"
+        },
+        {
+          "id": "fire",
+          "kind": "button",
+          "x": 0.8,
+          "y": 0.56,
+          "w": 80,
+          "h": 80,
+          "label": "FIRE",
+          "bindings": [
+            "mouse:left"
+          ],
+          "role": "fire",
+          "lookThrough": true
+        },
+        {
+          "id": "aim",
+          "kind": "button",
+          "x": 0.925,
+          "y": 0.34,
+          "w": 60,
+          "h": 60,
+          "label": "AIM",
+          "bindings": [
+            "mouse:right"
+          ],
+          "role": "ads",
+          "mode": "mixed"
+        },
+        {
+          "id": "jump",
+          "kind": "button",
+          "x": 0.905,
+          "y": 0.6,
+          "w": 54,
+          "h": 54,
+          "label": "Jump",
+          "bindings": [
+            "key:0x20"
+          ],
+          "role": "jump"
+        },
+        {
+          "id": "stealth",
+          "kind": "button",
+          "x": 0.905,
+          "y": 0.84,
+          "w": 52,
+          "h": 52,
+          "label": "Stealth",
+          "bindings": [
+            "key:0xA2"
+          ],
+          "role": "crouch"
+        },
+        {
+          "id": "reload",
+          "kind": "button",
+          "x": 0.69,
+          "y": 0.88,
+          "w": 50,
+          "h": 50,
+          "label": "Reload",
+          "bindings": [
+            "key:0x52"
+          ],
+          "role": "reload"
+        },
+        {
+          "id": "enter",
+          "kind": "button",
+          "x": 0.615,
+          "y": 0.66,
+          "w": 50,
+          "h": 50,
+          "label": "Enter",
+          "bindings": [
+            "key:0x46"
+          ],
+          "role": "interact"
+        },
+        {
+          "id": "wheel",
+          "kind": "button",
+          "x": 0.585,
+          "y": 0.88,
+          "w": 48,
+          "h": 48,
+          "label": "Wheel",
+          "bindings": [
+            "key:0x09"
+          ],
+          "role": "switch"
+        },
+        {
+          "id": "cover",
+          "kind": "button",
+          "x": 0.63,
+          "y": 0.4,
+          "w": 50,
+          "h": 50,
+          "label": "Cover",
+          "bindings": [
+            "key:0x51"
+          ]
+        },
+        {
+          "id": "prev",
+          "kind": "button",
+          "x": 0.74,
+          "y": 0.28,
+          "w": 50,
+          "h": 34,
+          "label": "Prev",
+          "bindings": [
+            "wheel:up"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "next",
+          "kind": "button",
+          "x": 0.84,
+          "y": 0.28,
+          "w": 50,
+          "h": 34,
+          "label": "Next",
+          "bindings": [
+            "wheel:down"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "throw",
+          "kind": "button",
+          "x": 0.535,
+          "y": 0.4,
+          "w": 50,
+          "h": 34,
+          "label": "Throw",
+          "bindings": [
+            "key:0x47"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "context",
+          "kind": "button",
+          "x": 0.535,
+          "y": 0.52,
+          "w": 50,
+          "h": 34,
+          "label": "Use",
+          "bindings": [
+            "key:0x45"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "to-vehicle",
+          "kind": "switch",
+          "x": 0.53,
+          "y": 0.76,
+          "w": 56,
+          "h": 34,
+          "label": "Drive",
+          "shape": "pill",
+          "switchTo": "layout:vehicle"
+        },
+        {
+          "id": "phone",
+          "kind": "button",
+          "x": 0.05,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Phone",
+          "bindings": [
+            "key:0x26"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "to-phone",
+          "kind": "switch",
+          "x": 0.13,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Keys",
+          "shape": "pill",
+          "switchTo": "layout:phone"
+        },
+        {
+          "id": "radar",
+          "kind": "button",
+          "x": 0.21,
+          "y": 0.075,
+          "w": 66,
+          "h": 34,
+          "label": "Radar",
+          "bindings": [
+            "key:0x5A"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "char-wheel",
+          "kind": "button",
+          "x": 0.29,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Chars",
+          "bindings": [
+            "key:0xA4"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "cam",
+          "kind": "button",
+          "x": 0.4,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Cam",
+          "bindings": [
+            "key:0x56"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "switch",
+          "kind": "switch",
+          "x": 0.5,
+          "y": 0.075,
+          "w": 84,
+          "h": 34,
+          "shape": "pill",
+          "switchTo": "picker"
+        },
+        {
+          "id": "pause",
+          "kind": "button",
+          "x": 0.6,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Pause",
+          "bindings": [
+            "key:0x1B"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "interact-k",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.075,
+          "w": 62,
+          "h": 34,
+          "label": "Menu",
+          "bindings": [
+            "key:0x4D"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "special",
+          "kind": "button",
+          "x": 0.8,
+          "y": 0.075,
+          "w": 62,
+          "h": 34,
+          "label": "Special",
+          "bindings": [
+            "key:0x14"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "behind",
+          "kind": "button",
+          "x": 0.955,
+          "y": 0.1,
+          "w": 44,
+          "h": 44,
+          "label": "Behind",
+          "bindings": [
+            "key:0x43"
+          ]
+        },
+        {
+          "id": "slot-1",
+          "kind": "button",
+          "x": 0.28,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Fists",
+          "bindings": [
+            "key:0x31"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-2",
+          "kind": "button",
+          "x": 0.338,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Melee",
+          "bindings": [
+            "key:0x32"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-3",
+          "kind": "button",
+          "x": 0.396,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Shotgun",
+          "bindings": [
+            "key:0x33"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-4",
+          "kind": "button",
+          "x": 0.454,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Heavy",
+          "bindings": [
+            "key:0x34"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-5",
+          "kind": "button",
+          "x": 0.512,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Grenade",
+          "bindings": [
+            "key:0x35"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-6",
+          "kind": "button",
+          "x": 0.57,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Pistol",
+          "bindings": [
+            "key:0x36"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-7",
+          "kind": "button",
+          "x": 0.628,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "SMG",
+          "bindings": [
+            "key:0x37"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-8",
+          "kind": "button",
+          "x": 0.686,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Rifle",
+          "bindings": [
+            "key:0x38"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        },
+        {
+          "id": "slot-9",
+          "kind": "button",
+          "x": 0.744,
+          "y": 0.19,
+          "w": 44,
+          "h": 28,
+          "label": "Sniper",
+          "bindings": [
+            "key:0x39"
+          ],
+          "shape": "pill",
+          "opacity": 0.6
+        }
+      ],
+      "portrait": [
+        {
+          "id": "move",
+          "kind": "zone",
+          "x": 0.25,
+          "y": 0.78,
+          "w": 0.5,
+          "h": 0.42,
+          "label": "Move",
+          "bindings": [
+            "key:0x57",
+            "key:0x53",
+            "key:0x41",
+            "key:0x44"
+          ],
+          "shape": "square",
+          "zone": "floating_stick",
+          "role": "move",
+          "deadzone": 0.1,
+          "opacity": 0.25,
+          "runLock": true,
+          "sprint": "key:0xA0",
+          "stick": "keys"
+        },
+        {
+          "id": "fire-left",
+          "kind": "button",
+          "x": 0.1,
+          "y": 0.61,
+          "w": 52,
+          "h": 52,
+          "label": "FIRE",
+          "bindings": [
+            "mouse:left"
+          ],
+          "role": "fire"
+        },
+        {
+          "id": "fire",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.78,
+          "w": 72,
+          "h": 72,
+          "label": "FIRE",
+          "bindings": [
+            "mouse:left"
+          ],
+          "role": "fire",
+          "lookThrough": true
+        },
+        {
+          "id": "aim",
+          "kind": "button",
+          "x": 0.9,
+          "y": 0.63,
+          "w": 54,
+          "h": 54,
+          "label": "AIM",
+          "bindings": [
+            "mouse:right"
+          ],
+          "role": "ads",
+          "mode": "mixed"
+        },
+        {
+          "id": "jump",
+          "kind": "button",
+          "x": 0.9,
+          "y": 0.8,
+          "w": 50,
+          "h": 50,
+          "label": "Jump",
+          "bindings": [
+            "key:0x20"
+          ],
+          "role": "jump"
+        },
+        {
+          "id": "stealth",
+          "kind": "button",
+          "x": 0.9,
+          "y": 0.94,
+          "w": 46,
+          "h": 46,
+          "label": "Stealth",
+          "bindings": [
+            "key:0xA2"
+          ],
+          "role": "crouch"
+        },
+        {
+          "id": "reload",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.94,
+          "w": 44,
+          "h": 44,
+          "label": "Reload",
+          "bindings": [
+            "key:0x52"
+          ],
+          "role": "reload"
+        },
+        {
+          "id": "enter",
+          "kind": "button",
+          "x": 0.56,
+          "y": 0.7,
+          "w": 46,
+          "h": 46,
+          "label": "Enter",
+          "bindings": [
+            "key:0x46"
+          ],
+          "role": "interact"
+        },
+        {
+          "id": "cover",
+          "kind": "button",
+          "x": 0.56,
+          "y": 0.81,
+          "w": 44,
+          "h": 44,
+          "label": "Cover",
+          "bindings": [
+            "key:0x51"
+          ]
+        },
+        {
+          "id": "wheel",
+          "kind": "button",
+          "x": 0.56,
+          "y": 0.93,
+          "w": 44,
+          "h": 44,
+          "label": "Wheel",
+          "bindings": [
+            "key:0x09"
+          ],
+          "role": "switch"
+        },
+        {
+          "id": "prev",
+          "kind": "button",
+          "x": 0.56,
+          "y": 0.6,
+          "w": 44,
+          "h": 30,
+          "label": "Prev",
+          "bindings": [
+            "wheel:up"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "next",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.64,
+          "w": 44,
+          "h": 30,
+          "label": "Next",
+          "bindings": [
+            "wheel:down"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "to-vehicle",
+          "kind": "switch",
+          "x": 0.4,
+          "y": 0.6,
+          "w": 48,
+          "h": 30,
+          "label": "Drive",
+          "shape": "pill",
+          "switchTo": "layout:vehicle"
+        },
+        {
+          "id": "context",
+          "kind": "button",
+          "x": 0.25,
+          "y": 0.61,
+          "w": 44,
+          "h": 30,
+          "label": "Use",
+          "bindings": [
+            "key:0x45"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "phone",
+          "kind": "button",
+          "x": 0.075,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Phone",
+          "bindings": [
+            "key:0x26"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "chars",
+          "kind": "button",
+          "x": 0.205,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Chars",
+          "bindings": [
+            "key:0xA4"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "cam",
+          "kind": "button",
+          "x": 0.335,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Cam",
+          "bindings": [
+            "key:0x56"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "switch",
+          "kind": "switch",
+          "x": 0.5,
+          "y": 0.52,
+          "w": 72,
+          "h": 34,
+          "shape": "pill",
+          "switchTo": "picker"
+        },
+        {
+          "id": "pause",
+          "kind": "button",
+          "x": 0.665,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Pause",
+          "bindings": [
+            "key:0x1B"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "special",
+          "kind": "button",
+          "x": 0.795,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Special",
+          "bindings": [
+            "key:0x14"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "behind",
+          "kind": "button",
+          "x": 0.925,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Behind",
+          "bindings": [
+            "key:0x43"
+          ],
+          "shape": "pill"
+        }
+      ]
+    },
+    {
+      "id": "vehicle",
+      "name": "Vehicle",
+      "settings": {
+        "outside": "look",
+        "look": "mouse"
+      },
+      "landscape": [
+        {
+          "id": "steer",
+          "kind": "zone",
+          "x": 0.21,
+          "y": 0.62,
+          "w": 0.42,
+          "h": 0.76,
+          "label": "Steer",
+          "bindings": [
+            "key:0xA0",
+            "key:0xA2",
+            "key:0x41",
+            "key:0x44"
+          ],
+          "shape": "square",
+          "zone": "floating_stick",
+          "role": "move",
+          "deadzone": 0.04,
+          "antiDeadzone": 0.12,
+          "opacity": 0.25,
+          "stick": "keys"
+        },
+        {
+          "id": "drive-aim",
+          "kind": "button",
+          "x": 0.075,
+          "y": 0.36,
+          "w": 58,
+          "h": 58,
+          "label": "Aim",
+          "bindings": [
+            "mouse:right"
+          ],
+          "mode": "toggle",
+          "role": "ads"
+        },
+        {
+          "id": "gas",
+          "kind": "button",
+          "x": 0.915,
+          "y": 0.66,
+          "w": 84,
+          "h": 110,
+          "label": "GAS",
+          "bindings": [
+            "key:0x57"
+          ],
+          "shape": "square",
+          "tint": "#CC3FA56F"
+        },
+        {
+          "id": "brake",
+          "kind": "button",
+          "x": 0.8,
+          "y": 0.72,
+          "w": 76,
+          "h": 90,
+          "label": "Brake",
+          "bindings": [
+            "key:0x53"
+          ],
+          "shape": "square",
+          "tint": "#CCD0493F"
+        },
+        {
+          "id": "handbrake",
+          "kind": "button",
+          "x": 0.8,
+          "y": 0.47,
+          "w": 76,
+          "h": 44,
+          "label": "Handbrake",
+          "bindings": [
+            "key:0x20"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "exit",
+          "kind": "button",
+          "x": 0.915,
+          "y": 0.34,
+          "w": 50,
+          "h": 50,
+          "label": "Exit",
+          "bindings": [
+            "key:0x46"
+          ],
+          "role": "interact"
+        },
+        {
+          "id": "to-foot",
+          "kind": "switch",
+          "x": 0.915,
+          "y": 0.19,
+          "w": 64,
+          "h": 32,
+          "label": "On foot",
+          "shape": "pill",
+          "switchTo": "layout:on-foot"
+        },
+        {
+          "id": "behind",
+          "kind": "button",
+          "x": 0.8,
+          "y": 0.28,
+          "w": 44,
+          "h": 44,
+          "label": "Behind",
+          "bindings": [
+            "key:0x43"
+          ]
+        },
+        {
+          "id": "cinema",
+          "kind": "button",
+          "x": 0.68,
+          "y": 0.62,
+          "w": 50,
+          "h": 50,
+          "label": "Cinema",
+          "bindings": [
+            "key:0x52"
+          ]
+        },
+        {
+          "id": "duck",
+          "kind": "button",
+          "x": 0.68,
+          "y": 0.4,
+          "w": 46,
+          "h": 46,
+          "label": "Duck/Spec",
+          "bindings": [
+            "key:0x58"
+          ]
+        },
+        {
+          "id": "shoot",
+          "kind": "button",
+          "x": 0.585,
+          "y": 0.4,
+          "w": 46,
+          "h": 46,
+          "label": "Shoot",
+          "bindings": [
+            "mouse:left"
+          ],
+          "role": "fire"
+        },
+        {
+          "id": "horn",
+          "kind": "button",
+          "x": 0.68,
+          "y": 0.86,
+          "w": 52,
+          "h": 52,
+          "label": "Horn/Boost",
+          "bindings": [
+            "key:0x45"
+          ]
+        },
+        {
+          "id": "veh-gun",
+          "kind": "button",
+          "x": 0.58,
+          "y": 0.84,
+          "w": 44,
+          "h": 44,
+          "label": "Veh gun",
+          "bindings": [
+            "wheel:up"
+          ]
+        },
+        {
+          "id": "phone",
+          "kind": "button",
+          "x": 0.05,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Phone",
+          "bindings": [
+            "key:0x26"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "radio",
+          "kind": "button",
+          "x": 0.13,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Radio",
+          "bindings": [
+            "key:0x51"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "station",
+          "kind": "button",
+          "x": 0.21,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Station",
+          "bindings": [
+            "key:0xBE"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "lights-k",
+          "kind": "button",
+          "x": 0.29,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Lights",
+          "bindings": [
+            "key:0x48"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "cam",
+          "kind": "button",
+          "x": 0.4,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Cam",
+          "bindings": [
+            "key:0x56"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "switch",
+          "kind": "switch",
+          "x": 0.5,
+          "y": 0.075,
+          "w": 84,
+          "h": 34,
+          "shape": "pill",
+          "switchTo": "picker"
+        },
+        {
+          "id": "pause",
+          "kind": "button",
+          "x": 0.6,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Pause",
+          "bindings": [
+            "key:0x1B"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "interact-k",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.075,
+          "w": 62,
+          "h": 34,
+          "label": "Menu",
+          "bindings": [
+            "key:0x4D"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "special",
+          "kind": "button",
+          "x": 0.8,
+          "y": 0.075,
+          "w": 62,
+          "h": 34,
+          "label": "Special",
+          "bindings": [
+            "key:0x14"
+          ],
+          "shape": "pill"
+        }
+      ],
+      "portrait": [
+        {
+          "id": "steer",
+          "kind": "zone",
+          "x": 0.25,
+          "y": 0.78,
+          "w": 0.5,
+          "h": 0.42,
+          "label": "Steer",
+          "bindings": [
+            "key:0xA0",
+            "key:0xA2",
+            "key:0x41",
+            "key:0x44"
+          ],
+          "shape": "square",
+          "zone": "floating_stick",
+          "role": "move",
+          "deadzone": 0.04,
+          "antiDeadzone": 0.12,
+          "opacity": 0.25,
+          "stick": "keys"
+        },
+        {
+          "id": "drive-aim",
+          "kind": "button",
+          "x": 0.1,
+          "y": 0.62,
+          "w": 48,
+          "h": 48,
+          "label": "Aim",
+          "bindings": [
+            "mouse:right"
+          ],
+          "mode": "toggle",
+          "role": "ads"
+        },
+        {
+          "id": "gas",
+          "kind": "button",
+          "x": 0.9,
+          "y": 0.8,
+          "w": 64,
+          "h": 100,
+          "label": "GAS",
+          "bindings": [
+            "key:0x57"
+          ],
+          "shape": "square",
+          "tint": "#CC3FA56F"
+        },
+        {
+          "id": "brake",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.84,
+          "w": 64,
+          "h": 80,
+          "label": "Brake",
+          "bindings": [
+            "key:0x53"
+          ],
+          "shape": "square",
+          "tint": "#CCD0493F"
+        },
+        {
+          "id": "handbrake",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.68,
+          "w": 64,
+          "h": 40,
+          "label": "Handbrake",
+          "bindings": [
+            "key:0x20"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "exit",
+          "kind": "button",
+          "x": 0.9,
+          "y": 0.64,
+          "w": 46,
+          "h": 46,
+          "label": "Exit",
+          "bindings": [
+            "key:0x46"
+          ],
+          "role": "interact"
+        },
+        {
+          "id": "cinema",
+          "kind": "button",
+          "x": 0.56,
+          "y": 0.68,
+          "w": 42,
+          "h": 42,
+          "label": "Cinema",
+          "bindings": [
+            "key:0x52"
+          ]
+        },
+        {
+          "id": "duck",
+          "kind": "button",
+          "x": 0.56,
+          "y": 0.8,
+          "w": 40,
+          "h": 40,
+          "label": "Duck",
+          "bindings": [
+            "key:0x58"
+          ]
+        },
+        {
+          "id": "horn",
+          "kind": "button",
+          "x": 0.56,
+          "y": 0.92,
+          "w": 42,
+          "h": 42,
+          "label": "Horn",
+          "bindings": [
+            "key:0x45"
+          ]
+        },
+        {
+          "id": "behind",
+          "kind": "button",
+          "x": 0.9,
+          "y": 0.95,
+          "w": 40,
+          "h": 40,
+          "label": "Behind",
+          "bindings": [
+            "key:0x43"
+          ]
+        },
+        {
+          "id": "veh-gun",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.955,
+          "w": 40,
+          "h": 40,
+          "label": "Veh gun",
+          "bindings": [
+            "wheel:up"
+          ]
+        },
+        {
+          "id": "shoot",
+          "kind": "button",
+          "x": 0.23,
+          "y": 0.61,
+          "w": 40,
+          "h": 40,
+          "label": "Shoot",
+          "bindings": [
+            "mouse:left"
+          ],
+          "role": "fire"
+        },
+        {
+          "id": "phone",
+          "kind": "button",
+          "x": 0.075,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Phone",
+          "bindings": [
+            "key:0x26"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "radio",
+          "kind": "button",
+          "x": 0.205,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Radio",
+          "bindings": [
+            "key:0x51"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "lights",
+          "kind": "button",
+          "x": 0.335,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Lights",
+          "bindings": [
+            "key:0x48"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "switch",
+          "kind": "switch",
+          "x": 0.5,
+          "y": 0.52,
+          "w": 72,
+          "h": 34,
+          "shape": "pill",
+          "switchTo": "picker"
+        },
+        {
+          "id": "pause",
+          "kind": "button",
+          "x": 0.665,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Pause",
+          "bindings": [
+            "key:0x1B"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "cam",
+          "kind": "button",
+          "x": 0.795,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Cam",
+          "bindings": [
+            "key:0x56"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "to-foot",
+          "kind": "switch",
+          "x": 0.925,
+          "y": 0.52,
+          "w": 44,
+          "h": 34,
+          "label": "Walk",
+          "shape": "pill",
+          "switchTo": "layout:on-foot"
+        }
+      ]
+    },
+    {
+      "id": "aircraft",
+      "name": "Aircraft",
+      "settings": {
+        "outside": "look",
+        "look": "mouse"
+      },
+      "landscape": [
+        {
+          "id": "fly",
+          "kind": "stick",
+          "x": 0.17,
+          "y": 0.62,
+          "w": 150,
+          "h": 150,
+          "label": "Pitch/Roll",
+          "bindings": [
+            "key:0x68",
+            "key:0x65",
+            "key:0x64",
+            "key:0x66"
+          ],
+          "floating": false,
+          "showRing": true,
+          "deadzone": 0.04,
+          "antiDeadzone": 0.08,
+          "stick": "keys"
+        },
+        {
+          "id": "throttle",
+          "kind": "button",
+          "x": 0.925,
+          "y": 0.5,
+          "w": 76,
+          "h": 110,
+          "label": "Throttle",
+          "bindings": [
+            "key:0x57"
+          ],
+          "shape": "square",
+          "tint": "#CC3FA56F"
+        },
+        {
+          "id": "down",
+          "kind": "button",
+          "x": 0.925,
+          "y": 0.84,
+          "w": 76,
+          "h": 70,
+          "label": "Down",
+          "bindings": [
+            "key:0x53"
+          ],
+          "shape": "square",
+          "tint": "#CCD0493F"
+        },
+        {
+          "id": "fire",
+          "kind": "button",
+          "x": 0.79,
+          "y": 0.62,
+          "w": 64,
+          "h": 64,
+          "label": "FIRE",
+          "bindings": [
+            "key:0x20"
+          ],
+          "role": "fire"
+        },
+        {
+          "id": "yaw-left",
+          "kind": "button",
+          "x": 0.7,
+          "y": 0.84,
+          "w": 64,
+          "h": 44,
+          "label": "◀ Yaw",
+          "bindings": [
+            "key:0x41"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "yaw-right",
+          "kind": "button",
+          "x": 0.83,
+          "y": 0.84,
+          "w": 64,
+          "h": 44,
+          "label": "Yaw ▶",
+          "bindings": [
+            "key:0x44"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "target-left",
+          "kind": "button",
+          "x": 0.66,
+          "y": 0.66,
+          "w": 60,
+          "h": 34,
+          "label": "◀ Target",
+          "bindings": [
+            "key:0x67"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "target-right",
+          "kind": "button",
+          "x": 0.66,
+          "y": 0.5,
+          "w": 60,
+          "h": 34,
+          "label": "Target ▶",
+          "bindings": [
+            "key:0x69"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "cinema",
+          "kind": "button",
+          "x": 0.79,
+          "y": 0.38,
+          "w": 48,
+          "h": 48,
+          "label": "Cinema",
+          "bindings": [
+            "key:0x52"
+          ]
+        },
+        {
+          "id": "exit",
+          "kind": "button",
+          "x": 0.925,
+          "y": 0.2,
+          "w": 50,
+          "h": 50,
+          "label": "Exit/Bail",
+          "bindings": [
+            "key:0x46"
+          ],
+          "role": "interact"
+        },
+        {
+          "id": "to-chute",
+          "kind": "switch",
+          "x": 0.8,
+          "y": 0.2,
+          "w": 64,
+          "h": 34,
+          "label": "Chute",
+          "shape": "pill",
+          "switchTo": "layout:parachute"
+        },
+        {
+          "id": "gear",
+          "kind": "button",
+          "x": 0.05,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Gear",
+          "bindings": [
+            "key:0x47"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "vtol",
+          "kind": "button",
+          "x": 0.13,
+          "y": 0.075,
+          "w": 66,
+          "h": 34,
+          "label": "VTOL/Bomb",
+          "bindings": [
+            "key:0x45"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "weapon",
+          "kind": "button",
+          "x": 0.22,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Weapon",
+          "bindings": [
+            "wheel:up"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "cam",
+          "kind": "button",
+          "x": 0.4,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Cam",
+          "bindings": [
+            "key:0x56"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "switch",
+          "kind": "switch",
+          "x": 0.5,
+          "y": 0.075,
+          "w": 84,
+          "h": 34,
+          "shape": "pill",
+          "switchTo": "picker"
+        },
+        {
+          "id": "pause",
+          "kind": "button",
+          "x": 0.6,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Pause",
+          "bindings": [
+            "key:0x1B"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "gun-cam",
+          "kind": "button",
+          "x": 0.72,
+          "y": 0.075,
+          "w": 62,
+          "h": 34,
+          "label": "Gun cam",
+          "bindings": [
+            "key:0x2D"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "behind",
+          "kind": "button",
+          "x": 0.8,
+          "y": 0.075,
+          "w": 62,
+          "h": 34,
+          "label": "Behind",
+          "bindings": [
+            "key:0x43"
+          ],
+          "shape": "pill"
+        }
+      ]
+    },
+    {
+      "id": "parachute",
+      "name": "Parachute",
+      "settings": {
+        "outside": "look",
+        "look": "mouse"
+      },
+      "landscape": [
+        {
+          "id": "steer",
+          "kind": "zone",
+          "x": 0.22,
+          "y": 0.62,
+          "w": 0.44,
+          "h": 0.76,
+          "label": "Steer",
+          "bindings": [
+            "key:0x57",
+            "key:0x53",
+            "key:0x41",
+            "key:0x44"
+          ],
+          "shape": "square",
+          "zone": "floating_stick",
+          "role": "move",
+          "deadzone": 0.08,
+          "opacity": 0.25,
+          "stick": "keys"
+        },
+        {
+          "id": "open",
+          "kind": "button",
+          "x": 0.86,
+          "y": 0.6,
+          "w": 90,
+          "h": 90,
+          "label": "Open / Smoke",
+          "bindings": [
+            "mouse:left"
+          ]
+        },
+        {
+          "id": "smoke-k",
+          "kind": "button",
+          "x": 0.7,
+          "y": 0.4,
+          "w": 46,
+          "h": 46,
+          "label": "Smoke",
+          "bindings": [
+            "key:0x58"
+          ]
+        },
+        {
+          "id": "precise",
+          "kind": "button",
+          "x": 0.66,
+          "y": 0.62,
+          "w": 58,
+          "h": 58,
+          "label": "Precise",
+          "bindings": [
+            "key:0xA0"
+          ]
+        },
+        {
+          "id": "brake-left",
+          "kind": "button",
+          "x": 0.7,
+          "y": 0.88,
+          "w": 72,
+          "h": 46,
+          "label": "◀ Brake",
+          "bindings": [
+            "key:0x51"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "brake-right",
+          "kind": "button",
+          "x": 0.86,
+          "y": 0.88,
+          "w": 72,
+          "h": 46,
+          "label": "Brake ▶",
+          "bindings": [
+            "key:0x45"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "cut",
+          "kind": "button",
+          "x": 0.92,
+          "y": 0.26,
+          "w": 52,
+          "h": 52,
+          "label": "Cut away",
+          "bindings": [
+            "key:0x46"
+          ]
+        },
+        {
+          "id": "to-foot",
+          "kind": "switch",
+          "x": 0.3,
+          "y": 0.075,
+          "w": 64,
+          "h": 34,
+          "label": "On foot",
+          "shape": "pill",
+          "switchTo": "layout:on-foot"
+        },
+        {
+          "id": "cam",
+          "kind": "button",
+          "x": 0.4,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Cam",
+          "bindings": [
+            "key:0x56"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "switch",
+          "kind": "switch",
+          "x": 0.5,
+          "y": 0.075,
+          "w": 84,
+          "h": 34,
+          "shape": "pill",
+          "switchTo": "picker"
+        },
+        {
+          "id": "pause",
+          "kind": "button",
+          "x": 0.6,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Pause",
+          "bindings": [
+            "key:0x1B"
+          ],
+          "shape": "pill"
+        }
+      ]
+    },
+    {
+      "id": "phone",
+      "name": "Phone",
+      "settings": {
+        "outside": "look",
+        "look": "mouse"
+      },
+      "landscape": [
+        {
+          "id": "dpad",
+          "kind": "dpad",
+          "x": 0.17,
+          "y": 0.6,
+          "w": 150,
+          "h": 150,
+          "bindings": [
+            "key:0x26",
+            "key:0x28",
+            "key:0x25",
+            "key:0x27"
+          ]
+        },
+        {
+          "id": "select",
+          "kind": "button",
+          "x": 0.86,
+          "y": 0.8,
+          "w": 60,
+          "h": 60,
+          "label": "Select",
+          "bindings": [
+            "key:0x0D"
+          ]
+        },
+        {
+          "id": "back",
+          "kind": "button",
+          "x": 0.94,
+          "y": 0.58,
+          "w": 60,
+          "h": 60,
+          "label": "Back",
+          "bindings": [
+            "key:0x08"
+          ]
+        },
+        {
+          "id": "extra",
+          "kind": "button",
+          "x": 0.78,
+          "y": 0.58,
+          "w": 60,
+          "h": 60,
+          "label": "Extra",
+          "bindings": [
+            "key:0x20"
+          ]
+        },
+        {
+          "id": "option",
+          "kind": "button",
+          "x": 0.86,
+          "y": 0.36,
+          "w": 60,
+          "h": 60,
+          "label": "Option",
+          "bindings": [
+            "key:0x2E"
+          ]
+        },
+        {
+          "id": "to-foot",
+          "kind": "switch",
+          "x": 0.3,
+          "y": 0.075,
+          "w": 64,
+          "h": 34,
+          "label": "On foot",
+          "shape": "pill",
+          "switchTo": "layout:on-foot"
+        },
+        {
+          "id": "cam",
+          "kind": "button",
+          "x": 0.4,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Cam",
+          "bindings": [
+            "key:0x56"
+          ],
+          "shape": "pill"
+        },
+        {
+          "id": "switch",
+          "kind": "switch",
+          "x": 0.5,
+          "y": 0.075,
+          "w": 84,
+          "h": 34,
+          "shape": "pill",
+          "switchTo": "picker"
+        },
+        {
+          "id": "pause",
+          "kind": "button",
+          "x": 0.6,
+          "y": 0.075,
+          "w": 56,
+          "h": 34,
+          "label": "Pause",
+          "bindings": [
+            "key:0x1B"
+          ],
+          "shape": "pill"
+        }
+      ]
+    }
+  ]
+}
