@@ -394,6 +394,11 @@
           "type": "string",
           "pattern": "^(next|previous|picker|layout:[a-z0-9][a-z0-9-]{0,31})$",
           "description": "Switch elements only: next (default), previous, picker, or layout:<layout id>."
+        },
+        "group": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]{1,40}$",
+          "description": "Editor only: elements placed together from a ready-made group share this id ('<palette item>:<random>', e.g. abxy:e-3f9a1c2d), so the editor moves and resizes them as one. Play ignores it."
         }
       },
       "allOf": [
@@ -421,7 +426,8 @@
                 "opacity",
                 "shape",
                 "tint",
-                "switchTo"
+                "switchTo",
+                "group"
               ]
             }
           },

@@ -87,6 +87,17 @@ class V2(unittest.TestCase):
         self.bad(lambda d: d.update(layouts=[copy.deepcopy(SET["layouts"][0]) | {"id": f"l{i}", "name": f"L{i}"} for i in range(9)]), "at most 8")
         self.bad(lambda d: d["layouts"][2].pop("landscape"), "missing")
 
+    def test_group_is_a_v2_field(self):
+        d = copy.deepcopy(SET)
+        d["layouts"][0]["landscape"][0]["group"] = "abxy:e-3f9a1c2d"
+        validate.validate_layout(raw(d))
+        d["layouts"][0]["landscape"][0]["group"] = "bad group!"
+        with self.assertRaisesRegex(validate.Invalid, "group"):
+            validate.validate_layout(raw(d))
+        v1 = {"format": "nebula-layout", "version": 1, "meta": {"name": "x"}, "landscape": [dict(BTN, group="abxy:1")]}
+        with self.assertRaisesRegex(validate.Invalid, "unknown field"):
+            validate.validate_layout(raw(v1))
+
     def test_index_entry_for_set(self):
         e = validate.entry_for("layouts/test/set.json", raw(SET), SET)
         self.assertEqual(e["layouts"], ["On foot", "Vehicle", "Aircraft"])

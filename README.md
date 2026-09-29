@@ -98,6 +98,8 @@ Nebula 0.4 also reads `"version": 2`, which adds:
 - **Chords**: any binding may join 2–4 bindings with `+`, e.g. `key:0x10+key:0x45` (Shift+E),
   `pad:256+pad:512` (LB+RB), `key:0x11+mouse:left`. Allowed in D-pad directions, `click`, `sprint`
   and macro steps as well as button bindings.
+- **Editor groups**: an optional `"group": "abxy:e-3f9a1c2d"` on elements placed together from a
+  ready-made group (ABXY, WASD…), so the editor keeps moving them as one. Play ignores it.
 
 Use version 1 when a layout needs none of these, so older Nebula can read it. The full
 description is `schema/nebula-layout-2.schema.json`; index entries of sets list their layouts'

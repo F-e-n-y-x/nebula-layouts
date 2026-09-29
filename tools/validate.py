@@ -28,7 +28,7 @@ LAYOUT_KEYS = {"id", "name", "settings", "landscape", "portrait"}
 SET_KEYS = {"start", "cycle"}
 MAX_LAYOUTS = 8
 MAX_CHORD = 4
-SWITCH_KEYS = {"id", "kind", "x", "y", "w", "h", "label", "opacity", "shape", "tint", "switchTo"}
+SWITCH_KEYS = {"id", "kind", "x", "y", "w", "h", "label", "opacity", "shape", "tint", "switchTo", "group"}
 SWITCH_TO = re.compile(r"^(next|previous|picker|layout:[a-z0-9][a-z0-9-]{0,31})$")
 LAYOUT_ID = re.compile(r"^[a-z0-9][a-z0-9-]{0,31}$")
 META_KEYS = {"name", "author", "game", "target", "device", "aspect", "description", "tags"}
@@ -182,9 +182,11 @@ def element(o, p, version=1, layout_ids=None):
     if o.get("kind") == "switch" and version >= 2:
         keys(o, SWITCH_KEYS, p)
     else:
-        keys(o, ELEMENT_KEYS, p)
+        keys(o, ELEMENT_KEYS | ({"group"} if version >= 2 else set()), p)
     if not isinstance(o.get("id"), str) or not ID.match(o["id"]):
         raise Invalid(f"{p}.id: letters, digits and _ . : - only, up to 40")
+    if "group" in o and (not isinstance(o["group"], str) or not ID.match(o["group"])):
+        raise Invalid(f"{p}.group: letters, digits and _ . : - only, up to 40")
     if kind not in (KINDS_V2 if version >= 2 else KINDS):
         raise Invalid(f"{p}.kind: unknown control {kind!r}" + (' (switch elements need "version": 2)' if kind == "switch" else ""))
     if kind == "switch" and "switchTo" in o:
