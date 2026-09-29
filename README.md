@@ -14,8 +14,10 @@ layout's preview, and downloads a layout only when you pick it.
 layouts/<game>/<name>.json          layouts made for one game        (layouts/gta-v/…)
 layouts/genre-<genre>/<name>.json   templates for any game of a genre (layouts/genre-shooter/…)
 index.json                          generated list of every layout: name, game, tags, checksum, preview
-schema/nebula-layout-1.schema.json  JSON Schema of a layout file
+schema/nebula-layout-1.schema.json  JSON Schema of a version 1 layout file
+schema/nebula-layout-2.schema.json  JSON Schema of a version 2 file (layout sets, switch element, chords)
 tools/validate.py                   validator and index builder (Python 3, standard library only)
+tests/                              validator tests (python3 -m unittest discover tests)
 ```
 
 - **Game layouts** are tuned to one game's own controls and name it in `game`
@@ -81,6 +83,25 @@ Tags make search work across games. Use a few of:
   RB = 512, L3 = 64, R3 = 128, Start = 16, Back = 32, D-pad 1/2/4/8), `lt`, `rt`,
   `key:<Windows virtual-key code>`, `mouse:left|right|middle|back|forward`, `wheel:up|down`, `none`.
 - Fields at their default may be left out. Anything unknown is an error.
+
+### Version 2: layout sets, the switch element and chords
+
+Nebula 0.4 also reads `"version": 2`, which adds:
+
+- **Layout sets**: one file with several layouts for one game, e.g. On foot / Vehicle / Aircraft.
+  Instead of top-level `settings`/`landscape`/`portrait`, a set has
+  `"layouts": [{ "id": "on-foot", "name": "On foot", "settings": {…}, "landscape": […], "portrait": […] }, …]`
+  (1–8 layouts) and an optional `"set": { "start": "on-foot", "cycle": ["on-foot", "vehicle"] }`.
+- **The layout switch** element: `{ "kind": "switch", "switchTo": "next" }` (or `previous`, `picker`,
+  `layout:<id>`). It is placed like a button, never sends anything to the PC, and releases every
+  held input before the next layout appears.
+- **Chords**: any binding may join 2–4 bindings with `+`, e.g. `key:0x10+key:0x45` (Shift+E),
+  `pad:256+pad:512` (LB+RB), `key:0x11+mouse:left`. Allowed in D-pad directions, `click`, `sprint`
+  and macro steps as well as button bindings.
+
+Use version 1 when a layout needs none of these, so older Nebula can read it. The full
+description is `schema/nebula-layout-2.schema.json`; index entries of sets list their layouts'
+names in `layouts` and preview the start layout.
 
 The easiest way to make one is Nebula itself: edit the controls, then **Profiles → Share → Save
 file**, or **Share to library**, which fills in a GitHub page for you.

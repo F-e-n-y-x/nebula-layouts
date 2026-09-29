@@ -5,8 +5,10 @@
     tools/validate.py --write-index   # also rewrite index.json from the layout files
     tools/validate.py path/to/one.json
 
-Standard library only. The rules are the app's (LayoutFile.parse in Nebula): the JSON Schema in
-schema/ describes the same format; when the `jsonschema` package is installed it is checked too.
+Reads format versions 1 and 2 (2 adds layout sets, the layout switch element and chords; see
+schema/nebula-layout-2.schema.json). Standard library only. The rules are the app's
+(LayoutFile.parse in Nebula): the JSON Schemas in schema/ describe the same format; when the
+`jsonschema` package is installed they are checked too.
 Exit status 1 when anything fails.
 """
 import hashlib
@@ -21,6 +23,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAX_BYTES = 256 * 1024
 MAX_ELEMENTS = 64
 TOP_KEYS = {"$schema", "format", "version", "meta", "settings", "landscape", "portrait"}
+SET_TOP_KEYS = {"$schema", "format", "version", "meta", "set", "layouts"}
+LAYOUT_KEYS = {"id", "name", "settings", "landscape", "portrait"}
+SET_KEYS = {"start", "cycle"}
+MAX_LAYOUTS = 8
+MAX_CHORD = 4
+SWITCH_KEYS = {"id", "kind", "x", "y", "w", "h", "label", "opacity", "shape", "tint", "switchTo"}
+SWITCH_TO = re.compile(r"^(next|previous|picker|layout:[a-z0-9][a-z0-9-]{0,31})$")
+LAYOUT_ID = re.compile(r"^[a-z0-9][a-z0-9-]{0,31}$")
 META_KEYS = {"name", "author", "game", "target", "device", "aspect", "description", "tags"}
 GAME_KEYS = {"name", "steamAppId"}
 SETTINGS = {"outside": {"look", "nothing", "trackpad", "direct"}, "look": {"mouse", "stick"}}
@@ -30,6 +40,7 @@ ELEMENT_KEYS = {
     "lookThrough", "antiDeadzone", "sprint", "sprintAt", "runLock", "role",
 }
 KINDS = {"button", "dpad", "stick", "trigger", "touchpad", "combo", "macro", "zone"}
+KINDS_V2 = KINDS | {"switch"}
 ENUMS = {
     "mode": {"hold", "toggle", "mixed"},
     "shape": {"round", "pill", "square"},
@@ -90,10 +101,35 @@ def parse_int(s):
     return int(s[2:], 16) if s.startswith("0x") else int(s)
 
 
-def binding(v, path):
+def binding(v, path, version=1):
     if not isinstance(v, str):
         raise Invalid(f"{path}: must be text")
     t = v.strip().lower()
+    if "+" in t:
+        # Version 2 chord: 2-4 different bindings pressed together, e.g. key:0x10+key:0x45 (Shift+E).
+        if version < 2:
+            raise Invalid(f"{path}: chords ({v!r}) need \"version\": 2")
+        parts = t.split("+")
+        if not 2 <= len(parts) <= MAX_CHORD:
+            raise Invalid(f"{path}: a chord joins 2 to {MAX_CHORD} bindings")
+        for i, part in enumerate(parts):
+            if part == "none":
+                raise Invalid(f"{path}: a chord can't contain none")
+            one(part, v, path)
+        if len({canonical(x) for x in parts}) != len(parts):
+            raise Invalid(f"{path}: a chord presses each binding once")
+        return
+    one(t, v, path)
+
+
+def canonical(t):
+    head, _, arg = t.partition(":")
+    if head in ("pad", "key"):
+        return f"{head}:{parse_int(arg)}"
+    return t
+
+
+def one(t, v, path):
     head, _, arg = t.partition(":")
     ok = False
     try:
@@ -138,15 +174,28 @@ def meta_of(m, where="meta"):
             raise Invalid(f"{where}.tags: up to 8 lower-case tags")
 
 
-def element(o, p):
+def element(o, p, version=1, layout_ids=None):
+    """layout_ids: the set's layout ids (a set file), or None (a single layout)."""
     if not isinstance(o, dict):
         raise Invalid(f"{p}: must be an object")
-    keys(o, ELEMENT_KEYS, p)
+    kind = o.get("kind")
+    if o.get("kind") == "switch" and version >= 2:
+        keys(o, SWITCH_KEYS, p)
+    else:
+        keys(o, ELEMENT_KEYS, p)
     if not isinstance(o.get("id"), str) or not ID.match(o["id"]):
         raise Invalid(f"{p}.id: letters, digits and _ . : - only, up to 40")
-    kind = o.get("kind")
-    if kind not in KINDS:
-        raise Invalid(f"{p}.kind: unknown control {kind!r}")
+    if kind not in (KINDS_V2 if version >= 2 else KINDS):
+        raise Invalid(f"{p}.kind: unknown control {kind!r}" + (' (switch elements need "version": 2)' if kind == "switch" else ""))
+    if kind == "switch" and "switchTo" in o:
+        t = o["switchTo"]
+        if not isinstance(t, str) or not SWITCH_TO.match(t):
+            raise Invalid(f"{p}.switchTo: next, previous, picker or layout:<layout id>")
+        if t.startswith("layout:"):
+            if layout_ids is None:
+                raise Invalid(f"{p}.switchTo: {t!r} names a layout, but this file is a single layout, not a set")
+            if t[7:] not in layout_ids:
+                raise Invalid(f"{p}.switchTo: no layout {t[7:]!r} in this set")
     for k in ("x", "y"):
         if k not in o:
             raise Invalid(f"{p}.{k}: missing")
@@ -172,10 +221,10 @@ def element(o, p):
         if not isinstance(b, list) or len(b) > mx:
             raise Invalid(f"{p}.bindings: a list of at most {mx}")
         for i, x in enumerate(b):
-            binding(x, f"{p}.bindings[{i}]")
+            binding(x, f"{p}.bindings[{i}]", version)
     for k in ("click", "sprint"):
         if k in o:
-            binding(o[k], f"{p}.{k}")
+            binding(o[k], f"{p}.{k}", version)
     if "tint" in o and not (isinstance(o["tint"], str) and re.match(r"^#[0-9A-Fa-f]{8}$", o["tint"])):
         raise Invalid(f"{p}.tint: must look like #AARRGGBB")
     if "steps" in o:
@@ -189,14 +238,14 @@ def element(o, p):
             keys(s, {"binding", "holdMs", "gapMs"}, f"{p}.steps[{i}]")
             if "binding" not in s:
                 raise Invalid(f"{p}.steps[{i}].binding: missing")
-            binding(s["binding"], f"{p}.steps[{i}].binding")
+            binding(s["binding"], f"{p}.steps[{i}].binding", version)
             total += num(s.get("holdMs", 60), f"{p}.steps[{i}].holdMs", 10, 5000)
             total += num(s.get("gapMs", 40), f"{p}.steps[{i}].gapMs", 0, 5000)
         if total > 20000:
             raise Invalid(f"{p}.steps: a macro may last at most 20 seconds")
 
 
-def elements(v, path, required):
+def elements(v, path, required, version=1, layout_ids=None):
     if v is None:
         if required:
             raise Invalid(f"{path}: missing")
@@ -209,7 +258,7 @@ def elements(v, path, required):
         raise Invalid(f"{path}: at most {MAX_ELEMENTS} controls")
     ids = set()
     for i, e in enumerate(v):
-        element(e, f"{path}[{i}]")
+        element(e, f"{path}[{i}]", version, layout_ids)
         if e["id"] in ids:
             raise Invalid(f"{path}[{i}].id: {e['id']!r} is used twice")
         ids.add(e["id"])
@@ -227,23 +276,92 @@ def validate_layout(raw: bytes):
         raise Invalid("not a JSON object")
     if doc.get("format") != "nebula-layout":
         raise Invalid('"format" must be "nebula-layout"')
-    if doc.get("version") != 1 or isinstance(doc.get("version"), bool):
-        raise Invalid('"version" must be 1')
+    version = doc.get("version")
+    if isinstance(version, bool) or version not in (1, 2):
+        raise Invalid('"version" must be 1 or 2')
+    if version >= 2 and "layouts" in doc:
+        return validate_set(doc)
     keys(doc, TOP_KEYS, "the file")
     if "meta" not in doc:
         raise Invalid("meta: missing")
     meta_of(doc["meta"])
     if "settings" in doc:
-        s = doc["settings"]
-        if not isinstance(s, dict):
-            raise Invalid("settings: must be an object")
-        keys(s, set(SETTINGS), "settings")
-        for k, allowed in SETTINGS.items():
-            if k in s and s[k] not in allowed:
-                raise Invalid(f"settings.{k}: unknown value")
-    elements(doc.get("landscape"), "landscape", True)
-    elements(doc.get("portrait"), "portrait", False)
+        settings_of(doc["settings"], "settings")
+    elements(doc.get("landscape"), "landscape", True, version)
+    elements(doc.get("portrait"), "portrait", False, version)
     return doc
+
+
+def settings_of(s, where):
+    if not isinstance(s, dict):
+        raise Invalid(f"{where}: must be an object")
+    keys(s, set(SETTINGS), where)
+    for k, allowed in SETTINGS.items():
+        if k in s and s[k] not in allowed:
+            raise Invalid(f"{where}.{k}: unknown value")
+
+
+def validate_set(doc):
+    """Version 2 set: several layouts for one game, an optional cycle order and start layout."""
+    bad_top = [k for k in ("settings", "landscape", "portrait") if k in doc]
+    if bad_top:
+        raise Invalid(f"a set file has no top-level {bad_top[0]!r}; each layout has its own")
+    keys(doc, SET_TOP_KEYS, "the file")
+    if "meta" not in doc:
+        raise Invalid("meta: missing")
+    meta_of(doc["meta"])
+    ls = doc["layouts"]
+    if not isinstance(ls, list) or not ls:
+        raise Invalid("layouts: a list of 1 or more layouts")
+    if len(ls) > MAX_LAYOUTS:
+        raise Invalid(f"layouts: at most {MAX_LAYOUTS}")
+    ids, names = [], set()
+    for i, l in enumerate(ls):
+        p = f"layouts[{i}]"
+        if not isinstance(l, dict):
+            raise Invalid(f"{p}: must be an object")
+        keys(l, LAYOUT_KEYS, p)
+        lid = l.get("id")
+        if not isinstance(lid, str) or not LAYOUT_ID.match(lid):
+            raise Invalid(f"{p}.id: lower-case letters, digits and -, up to 32")
+        if lid in ids:
+            raise Invalid(f"{p}.id: {lid!r} is used twice")
+        ids.append(lid)
+        name = text(l, "name", f"{p}.name", 24, required=True)
+        if name.strip().lower() in names:
+            raise Invalid(f"{p}.name: {name!r} is used twice")
+        names.add(name.strip().lower())
+    for i, l in enumerate(ls):
+        p = f"layouts[{i}]"
+        if "settings" in l:
+            settings_of(l["settings"], f"{p}.settings")
+        elements(l.get("landscape"), f"{p}.landscape", True, 2, set(ids))
+        elements(l.get("portrait"), f"{p}.portrait", False, 2, set(ids))
+    if "set" in doc:
+        st = doc["set"]
+        if not isinstance(st, dict):
+            raise Invalid("set: must be an object")
+        keys(st, SET_KEYS, "set")
+        if "start" in st and st["start"] not in ids:
+            raise Invalid(f"set.start: no layout {st['start']!r}")
+        if "cycle" in st:
+            c = st["cycle"]
+            if not isinstance(c, list) or not 1 <= len(c) <= MAX_LAYOUTS:
+                raise Invalid(f"set.cycle: a list of 1 to {MAX_LAYOUTS} layout ids")
+            for j, x in enumerate(c):
+                if x not in ids:
+                    raise Invalid(f"set.cycle[{j}]: no layout {x!r}")
+            if len(set(c)) != len(c):
+                raise Invalid("set.cycle: each layout once")
+    return doc
+
+
+def start_layout(doc):
+    """The layout a set starts on (the file itself for a single layout)."""
+    if "layouts" not in doc:
+        return doc
+    start = doc.get("set", {}).get("start")
+    return next((l for l in doc["layouts"] if l["id"] == start), doc["layouts"][0])
 
 
 def schema_check(doc, path):
@@ -251,7 +369,7 @@ def schema_check(doc, path):
         import jsonschema  # optional
     except ImportError:
         return
-    with open(os.path.join(ROOT, "schema", "nebula-layout-1.schema.json")) as f:
+    with open(os.path.join(ROOT, "schema", f"nebula-layout-{doc.get('version', 1)}.schema.json")) as f:
         jsonschema.validate(doc, json.load(f))
 
 
@@ -265,9 +383,15 @@ def entry_for(rel, raw, doc):
     e["path"] = rel
     e["size"] = len(raw)
     e["sha256"] = hashlib.sha256(raw).hexdigest()
-    e["controls"] = len(doc["landscape"])
+    start = start_layout(doc)
+    e["controls"] = len(start["landscape"])
     # The thumbnail the app draws before downloading: kind, centre, size (zones: shares; else dp), shape.
-    e["preview"] = [[el["kind"], el["x"], el["y"], el["w"], el["h"], el.get("shape", "round")] for el in doc["landscape"]]
+    # A set shows its start layout.
+    e["preview"] = [[el["kind"], el["x"], el["y"], el["w"], el["h"], el.get("shape", "round")] for el in start["landscape"]]
+    if doc["version"] >= 2:
+        e["version"] = doc["version"]
+    if "layouts" in doc:
+        e["layouts"] = [l["name"] for l in doc["layouts"]]
     return e
 
 
