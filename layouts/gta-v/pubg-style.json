@@ -1,0 +1,213 @@
+{
+  "settings": {
+    "outside": "look",
+    "look": "mouse"
+  },
+  "meta": {
+    "game": {
+      "steamAppId": 271590,
+      "name": "Grand Theft Auto V"
+    },
+    "author": "Nebula",
+    "aspect": 2.17,
+    "name": "GTA V: PUBG-style",
+    "description": "Touch-only GTA V with GTA's controller map: RT shoot (left fire while you look, drag the right one to aim), LT aim, sprint (A) past the ring or locked, X jump, B reload, L3 stealth, Y car, LB weapon wheel, RB cover, R3 look behind. Swipe the right side to look (mouse look).",
+    "device": "phone",
+    "target": "xinput",
+    "tags": [
+      "gta",
+      "shooter",
+      "pubg-style",
+      "touch-only"
+    ]
+  },
+  "format": "nebula-layout",
+  "version": 1,
+  "landscape": [
+    {
+      "role": "move",
+      "shape": "square",
+      "kind": "zone",
+      "sprint": "pad:4096",
+      "h": 0.76,
+      "runLock": true,
+      "label": "Move",
+      "zone": "floating_stick",
+      "w": 0.44,
+      "x": 0.22,
+      "y": 0.62,
+      "id": "move",
+      "deadzone": 0.1,
+      "opacity": 0.25
+    },
+    {
+      "role": "fire",
+      "kind": "trigger",
+      "bindings": ["rt"],
+      "w": 64,
+      "h": 64,
+      "x": 0.075,
+      "y": 0.33,
+      "id": "fire-left",
+      "label": "FIRE"
+    },
+    {
+      "role": "fire",
+      "kind": "trigger",
+      "bindings": ["rt"],
+      "w": 80,
+      "h": 80,
+      "x": 0.8,
+      "y": 0.55,
+      "id": "fire",
+      "label": "FIRE",
+      "lookThrough": true
+    },
+    {
+      "mode": "mixed",
+      "role": "ads",
+      "kind": "trigger",
+      "bindings": ["lt"],
+      "w": 58,
+      "h": 58,
+      "x": 0.925,
+      "y": 0.33,
+      "id": "ads",
+      "label": "ADS"
+    },
+    {
+      "role": "jump",
+      "kind": "button",
+      "bindings": ["pad:16384"],
+      "w": 54,
+      "h": 54,
+      "x": 0.895,
+      "y": 0.6,
+      "id": "jump",
+      "label": "Jump"
+    },
+    {
+      "role": "crouch",
+      "kind": "button",
+      "bindings": ["pad:64"],
+      "w": 54,
+      "h": 54,
+      "x": 0.905,
+      "y": 0.83,
+      "id": "crouch",
+      "label": "Crouch"
+    },
+    {
+      "role": "reload",
+      "kind": "button",
+      "bindings": ["pad:8192"],
+      "w": 50,
+      "h": 50,
+      "x": 0.69,
+      "y": 0.88,
+      "id": "reload",
+      "label": "Reload"
+    },
+    {
+      "role": "switch",
+      "kind": "button",
+      "bindings": ["pad:256"],
+      "w": 48,
+      "h": 48,
+      "x": 0.585,
+      "y": 0.88,
+      "id": "swap",
+      "label": "Wheel"
+    },
+    {
+      "role": "interact",
+      "kind": "button",
+      "bindings": ["pad:32768"],
+      "w": 48,
+      "h": 48,
+      "x": 0.62,
+      "y": 0.66,
+      "id": "use",
+      "label": "Car"
+    },
+    {
+      "role": "free_look",
+      "kind": "button",
+      "bindings": ["none"],
+      "w": 50,
+      "h": 50,
+      "x": 0.69,
+      "y": 0.3,
+      "id": "eye",
+      "label": "Eye",
+      "lookThrough": true
+    },
+    {
+      "kind": "button",
+      "bindings": ["pad:128"],
+      "w": 44,
+      "h": 44,
+      "x": 0.925,
+      "y": 0.1,
+      "id": "melee",
+      "label": "Behind"
+    },
+    {
+      "role": "menu",
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:32"],
+      "w": 60,
+      "h": 34,
+      "x": 0.43,
+      "y": 0.07,
+      "id": "map",
+      "label": "Cam"
+    },
+    {
+      "role": "menu",
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:16"],
+      "w": 60,
+      "h": 34,
+      "x": 0.57,
+      "y": 0.07,
+      "id": "menu",
+      "label": "Menu"
+    },
+    {
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:512"],
+      "w": 58,
+      "h": 40,
+      "x": 0.075,
+      "y": 0.1,
+      "id": "extra-0",
+      "label": "Cover"
+    },
+    {
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:1"],
+      "w": 58,
+      "h": 40,
+      "x": 0.16,
+      "y": 0.1,
+      "id": "extra-1",
+      "label": "Phone"
+    },
+    {
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:8"],
+      "w": 58,
+      "h": 40,
+      "x": 0.245,
+      "y": 0.1,
+      "id": "extra-2",
+      "label": "Next"
+    }
+  ]
+}

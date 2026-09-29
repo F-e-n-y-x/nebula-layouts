@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/F-e-n-y-x/nebula-layouts/main/schema/nebula-layout-1.schema.json",
+  "title": "Nebula on-screen controls layout, version 1",
+  "description": "One shareable Nebula controls layout. Data only: bindings are gamepad buttons, keys and mouse buttons by name. Nebula rejects any file that doesn't match (unknown fields included).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "version", "meta", "landscape"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "format": { "const": "nebula-layout" },
+    "version": { "const": 1 },
+    "meta": { "$ref": "#/$defs/meta" },
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "outside": { "enum": ["look", "nothing", "trackpad", "direct"], "description": "What touches outside the controls do." },
+        "look": { "enum": ["mouse", "stick"], "description": "How look fingers turn the camera." }
+      }
+    },
+    "landscape": { "$ref": "#/$defs/elements", "minItems": 1 },
+    "portrait": { "$ref": "#/$defs/elements" }
+  },
+  "$defs": {
+    "text": { "type": "string", "pattern": "^[^\\u0000-\\u001f\\u007f\\u202d\\u202e]*$" },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "allOf": [{ "$ref": "#/$defs/text" }], "minLength": 1, "maxLength": 60 },
+        "author": { "allOf": [{ "$ref": "#/$defs/text" }], "maxLength": 40 },
+        "game": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name"],
+          "properties": {
+            "name": { "allOf": [{ "$ref": "#/$defs/text" }], "minLength": 1, "maxLength": 80 },
+            "steamAppId": { "type": "integer", "minimum": 1, "maximum": 99999999 }
+          }
+        },
+        "target": { "enum": ["xinput", "kbm", "mixed"] },
+        "device": { "enum": ["phone", "tablet", "any"] },
+        "aspect": { "type": "number", "minimum": 0.3, "maximum": 4, "description": "Landscape controls area width / height it was made on." },
+        "description": { "type": "string", "maxLength": 500, "pattern": "^[^\\u0000-\\u0009\\u000b-\\u001f\\u007f\\u202d\\u202e]*$" },
+        "tags": { "type": "array", "maxItems": 8, "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,23}$" } }
+      }
+    },
+    "binding": {
+      "type": "string",
+      "pattern": "^(none|lt|rt|wheel:(up|down)|mouse:(left|middle|right|back|forward)|key:(0x[0-9a-fA-F]{1,2}|[0-9]{1,3})|pad:(0x[0-9a-fA-F]{1,6}|[0-9]{1,7}))$",
+      "description": "pad:<ControllerPacket flag>, key:<Windows virtual-key code 1-254>, mouse:<button>, lt / rt, wheel:up|down or none. Nebula also checks the pad flag is a real button."
+    },
+    "elements": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "$ref": "#/$defs/element" }
+    },
+    "element": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "x", "y", "w", "h"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]{1,40}$" },
+        "kind": { "enum": ["button", "dpad", "stick", "trigger", "touchpad", "combo", "macro", "zone"] },
+        "x": { "type": "number", "minimum": 0, "maximum": 1, "description": "Centre, as a share of the controls area width." },
+        "y": { "type": "number", "minimum": 0, "maximum": 1, "description": "Centre, as a share of the controls area height." },
+        "w": { "type": "number", "minimum": 0.08, "maximum": 360, "description": "Zones: share of the area (0.08-1). Everything else: dp (28-360)." },
+        "h": { "type": "number", "minimum": 0.08, "maximum": 360 },
+        "label": { "allOf": [{ "$ref": "#/$defs/text" }], "maxLength": 24 },
+        "opacity": { "type": "number", "minimum": 0.1, "maximum": 1 },
+        "mode": { "enum": ["hold", "toggle", "mixed"] },
+        "shape": { "enum": ["round", "pill", "square"] },
+        "bindings": { "type": "array", "maxItems": 5, "items": { "$ref": "#/$defs/binding" } },
+        "stick": { "enum": ["left", "right", "keys"] },
+        "click": { "$ref": "#/$defs/binding" },
+        "floating": { "type": "boolean" },
+        "deadzone": { "type": "number", "minimum": 0, "maximum": 0.9 },
+        "sensitivity": { "type": "number", "minimum": 0.1, "maximum": 5 },
+        "steps": {
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["binding"],
+            "properties": {
+              "binding": { "$ref": "#/$defs/binding" },
+              "holdMs": { "type": "integer", "minimum": 10, "maximum": 5000 },
+              "gapMs": { "type": "integer", "minimum": 0, "maximum": 5000 }
+            }
+          }
+        },
+        "tint": { "type": "string", "pattern": "^#[0-9A-Fa-f]{8}$" },
+        "zone": { "enum": ["camera_stick", "camera_mouse", "floating_stick"] },
+        "acceleration": { "type": "number", "minimum": 0.5, "maximum": 2.5 },
+        "invertY": { "type": "boolean" },
+        "showRing": { "type": "boolean" },
+        "keepWithController": { "type": "boolean" },
+        "lookThrough": { "type": "boolean", "description": "Fire and look: pressed at once, and dragging the same finger aims." },
+        "antiDeadzone": { "type": "number", "minimum": 0, "maximum": 0.45 },
+        "sprint": { "$ref": "#/$defs/binding", "description": "Move stick: held while pushed forward past the ring." },
+        "sprintAt": { "type": "number", "minimum": 1, "maximum": 2 },
+        "runLock": { "type": "boolean", "description": "Move stick: drag up to the lock and let go to keep running." },
+        "role": { "enum": ["none", "fire", "ads", "move", "sprint", "jump", "crouch", "prone", "reload", "switch", "interact", "peek_left", "peek_right", "free_look", "menu"] }
+      }
+    }
+  }
+}

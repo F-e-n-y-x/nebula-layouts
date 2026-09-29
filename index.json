@@ -1,0 +1,456 @@
+{
+  "format": "nebula-layout-index",
+  "version": 1,
+  "updated": "2026-09-29",
+  "layouts": [
+    {
+      "id": "generic/pubg-style-controller",
+      "name": "Shooter: PUBG-style (controller)",
+      "author": "Nebula",
+      "target": "xinput",
+      "device": "phone",
+      "aspect": 2.17,
+      "description": "PUBG Mobile's layout for any XInput shooter: RT fire (left and right, drag the right one to aim), LT aim (tap or hold), push the stick past the ring to sprint (L3), drag up to lock the run. A jump, B crouch (hold for prone), X reload / use, Y swap, LB / RB peek, R3 melee.",
+      "tags": [
+        "shooter",
+        "pubg-style",
+        "touch-only"
+      ],
+      "path": "layouts/generic/pubg-style-controller.json",
+      "size": 4181,
+      "sha256": "f4c220e51c2f88bab35c1494cc5974e1cbd6f9ae2c6005c6999f2f22bd1a7e39",
+      "controls": 16,
+      "preview": [
+        [
+          "zone",
+          0.22,
+          0.62,
+          0.44,
+          0.76,
+          "square"
+        ],
+        [
+          "trigger",
+          0.075,
+          0.33,
+          64,
+          64,
+          "round"
+        ],
+        [
+          "trigger",
+          0.8,
+          0.55,
+          80,
+          80,
+          "round"
+        ],
+        [
+          "trigger",
+          0.925,
+          0.33,
+          58,
+          58,
+          "round"
+        ],
+        [
+          "button",
+          0.895,
+          0.6,
+          54,
+          54,
+          "round"
+        ],
+        [
+          "button",
+          0.905,
+          0.83,
+          54,
+          54,
+          "round"
+        ],
+        [
+          "macro",
+          0.795,
+          0.9,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.69,
+          0.88,
+          50,
+          50,
+          "round"
+        ],
+        [
+          "button",
+          0.585,
+          0.88,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.62,
+          0.66,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.69,
+          0.3,
+          50,
+          50,
+          "round"
+        ],
+        [
+          "button",
+          0.26,
+          0.1,
+          72,
+          40,
+          "pill"
+        ],
+        [
+          "button",
+          0.74,
+          0.1,
+          72,
+          40,
+          "pill"
+        ],
+        [
+          "button",
+          0.925,
+          0.1,
+          44,
+          44,
+          "round"
+        ],
+        [
+          "button",
+          0.43,
+          0.07,
+          60,
+          34,
+          "pill"
+        ],
+        [
+          "button",
+          0.57,
+          0.07,
+          60,
+          34,
+          "pill"
+        ]
+      ]
+    },
+    {
+      "id": "generic/pubg-style-keyboard-mouse",
+      "name": "Shooter: PUBG-style (keyboard+mouse)",
+      "author": "Nebula",
+      "target": "kbm",
+      "device": "phone",
+      "aspect": 2.17,
+      "description": "PUBG on PC from a phone: the stick is WASD (Shift past the ring, drag up to lock the run), swipe to look with the mouse, LMB fire (drag the right one to aim), RMB aim, Space, C, Z, R, F, Q / E peek, hold the eye for Alt free look, Tab bag, M map.",
+      "tags": [
+        "shooter",
+        "pubg-style",
+        "touch-only"
+      ],
+      "path": "layouts/generic/pubg-style-keyboard-mouse.json",
+      "size": 4265,
+      "sha256": "0f32c056de9dd79d4e1745f0ca90379f228106b4ab61ff5b7fdd4be1faab09b9",
+      "controls": 16,
+      "preview": [
+        [
+          "zone",
+          0.22,
+          0.62,
+          0.44,
+          0.76,
+          "square"
+        ],
+        [
+          "button",
+          0.075,
+          0.33,
+          64,
+          64,
+          "round"
+        ],
+        [
+          "button",
+          0.8,
+          0.55,
+          80,
+          80,
+          "round"
+        ],
+        [
+          "button",
+          0.925,
+          0.33,
+          58,
+          58,
+          "round"
+        ],
+        [
+          "button",
+          0.895,
+          0.6,
+          54,
+          54,
+          "round"
+        ],
+        [
+          "button",
+          0.905,
+          0.83,
+          54,
+          54,
+          "round"
+        ],
+        [
+          "button",
+          0.795,
+          0.9,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.69,
+          0.88,
+          50,
+          50,
+          "round"
+        ],
+        [
+          "button",
+          0.585,
+          0.88,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.62,
+          0.66,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.69,
+          0.3,
+          50,
+          50,
+          "round"
+        ],
+        [
+          "button",
+          0.26,
+          0.1,
+          72,
+          40,
+          "pill"
+        ],
+        [
+          "button",
+          0.74,
+          0.1,
+          72,
+          40,
+          "pill"
+        ],
+        [
+          "button",
+          0.925,
+          0.1,
+          44,
+          44,
+          "round"
+        ],
+        [
+          "button",
+          0.43,
+          0.07,
+          60,
+          34,
+          "pill"
+        ],
+        [
+          "button",
+          0.57,
+          0.07,
+          60,
+          34,
+          "pill"
+        ]
+      ]
+    },
+    {
+      "id": "gta-v/pubg-style",
+      "name": "GTA V: PUBG-style",
+      "author": "Nebula",
+      "game": {
+        "steamAppId": 271590,
+        "name": "Grand Theft Auto V"
+      },
+      "target": "xinput",
+      "device": "phone",
+      "aspect": 2.17,
+      "description": "Touch-only GTA V with GTA's controller map: RT shoot (left fire while you look, drag the right one to aim), LT aim, sprint (A) past the ring or locked, X jump, B reload, L3 stealth, Y car, LB weapon wheel, RB cover, R3 look behind. Swipe the right side to look (mouse look).",
+      "tags": [
+        "gta",
+        "shooter",
+        "pubg-style",
+        "touch-only"
+      ],
+      "path": "layouts/gta-v/pubg-style.json",
+      "size": 4127,
+      "sha256": "563c430ecb08f8f76820a114cea5e91a41126d11ce607c6675b5cdc605c00729",
+      "controls": 16,
+      "preview": [
+        [
+          "zone",
+          0.22,
+          0.62,
+          0.44,
+          0.76,
+          "square"
+        ],
+        [
+          "trigger",
+          0.075,
+          0.33,
+          64,
+          64,
+          "round"
+        ],
+        [
+          "trigger",
+          0.8,
+          0.55,
+          80,
+          80,
+          "round"
+        ],
+        [
+          "trigger",
+          0.925,
+          0.33,
+          58,
+          58,
+          "round"
+        ],
+        [
+          "button",
+          0.895,
+          0.6,
+          54,
+          54,
+          "round"
+        ],
+        [
+          "button",
+          0.905,
+          0.83,
+          54,
+          54,
+          "round"
+        ],
+        [
+          "button",
+          0.69,
+          0.88,
+          50,
+          50,
+          "round"
+        ],
+        [
+          "button",
+          0.585,
+          0.88,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.62,
+          0.66,
+          48,
+          48,
+          "round"
+        ],
+        [
+          "button",
+          0.69,
+          0.3,
+          50,
+          50,
+          "round"
+        ],
+        [
+          "button",
+          0.925,
+          0.1,
+          44,
+          44,
+          "round"
+        ],
+        [
+          "button",
+          0.43,
+          0.07,
+          60,
+          34,
+          "pill"
+        ],
+        [
+          "button",
+          0.57,
+          0.07,
+          60,
+          34,
+          "pill"
+        ],
+        [
+          "button",
+          0.075,
+          0.1,
+          58,
+          40,
+          "pill"
+        ],
+        [
+          "button",
+          0.16,
+          0.1,
+          58,
+          40,
+          "pill"
+        ],
+        [
+          "button",
+          0.245,
+          0.1,
+          58,
+          40,
+          "pill"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "settings": {
+    "outside": "look",
+    "look": "stick"
+  },
+  "meta": {
+    "author": "Nebula",
+    "aspect": 2.17,
+    "name": "Shooter: PUBG-style (controller)",
+    "description": "PUBG Mobile's layout for any XInput shooter: RT fire (left and right, drag the right one to aim), LT aim (tap or hold), push the stick past the ring to sprint (L3), drag up to lock the run. A jump, B crouch (hold for prone), X reload / use, Y swap, LB / RB peek, R3 melee.",
+    "device": "phone",
+    "target": "xinput",
+    "tags": [
+      "shooter",
+      "pubg-style",
+      "touch-only"
+    ]
+  },
+  "format": "nebula-layout",
+  "version": 1,
+  "landscape": [
+    {
+      "role": "move",
+      "shape": "square",
+      "kind": "zone",
+      "sprint": "pad:64",
+      "h": 0.76,
+      "runLock": true,
+      "label": "Move",
+      "zone": "floating_stick",
+      "w": 0.44,
+      "x": 0.22,
+      "y": 0.62,
+      "id": "move",
+      "deadzone": 0.1,
+      "opacity": 0.25
+    },
+    {
+      "role": "fire",
+      "kind": "trigger",
+      "bindings": ["rt"],
+      "w": 64,
+      "h": 64,
+      "x": 0.075,
+      "y": 0.33,
+      "id": "fire-left",
+      "label": "FIRE"
+    },
+    {
+      "role": "fire",
+      "kind": "trigger",
+      "bindings": ["rt"],
+      "w": 80,
+      "h": 80,
+      "x": 0.8,
+      "y": 0.55,
+      "id": "fire",
+      "label": "FIRE",
+      "lookThrough": true
+    },
+    {
+      "mode": "mixed",
+      "role": "ads",
+      "kind": "trigger",
+      "bindings": ["lt"],
+      "w": 58,
+      "h": 58,
+      "x": 0.925,
+      "y": 0.33,
+      "id": "ads",
+      "label": "ADS"
+    },
+    {
+      "role": "jump",
+      "kind": "button",
+      "bindings": ["pad:4096"],
+      "w": 54,
+      "h": 54,
+      "x": 0.895,
+      "y": 0.6,
+      "id": "jump",
+      "label": "Jump"
+    },
+    {
+      "role": "crouch",
+      "kind": "button",
+      "bindings": ["pad:8192"],
+      "w": 54,
+      "h": 54,
+      "x": 0.905,
+      "y": 0.83,
+      "id": "crouch",
+      "label": "Crouch"
+    },
+    {
+      "role": "prone",
+      "kind": "macro",
+      "w": 48,
+      "h": 48,
+      "x": 0.795,
+      "y": 0.9,
+      "id": "prone",
+      "label": "Prone",
+      "steps": [{
+        "holdMs": 800,
+        "gapMs": 40,
+        "binding": "pad:8192"
+      }]
+    },
+    {
+      "role": "reload",
+      "kind": "button",
+      "bindings": ["pad:16384"],
+      "w": 50,
+      "h": 50,
+      "x": 0.69,
+      "y": 0.88,
+      "id": "reload",
+      "label": "Reload"
+    },
+    {
+      "role": "switch",
+      "kind": "button",
+      "bindings": ["pad:32768"],
+      "w": 48,
+      "h": 48,
+      "x": 0.585,
+      "y": 0.88,
+      "id": "swap",
+      "label": "Swap"
+    },
+    {
+      "role": "interact",
+      "kind": "button",
+      "bindings": ["pad:16384"],
+      "w": 48,
+      "h": 48,
+      "x": 0.62,
+      "y": 0.66,
+      "id": "use",
+      "label": "Use"
+    },
+    {
+      "role": "free_look",
+      "kind": "button",
+      "bindings": ["none"],
+      "w": 50,
+      "h": 50,
+      "x": 0.69,
+      "y": 0.3,
+      "id": "eye",
+      "label": "Eye",
+      "lookThrough": true
+    },
+    {
+      "role": "peek_left",
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:256"],
+      "w": 72,
+      "h": 40,
+      "x": 0.26,
+      "y": 0.1,
+      "id": "peek-left",
+      "label": "◀ Peek"
+    },
+    {
+      "role": "peek_right",
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:512"],
+      "w": 72,
+      "h": 40,
+      "x": 0.74,
+      "y": 0.1,
+      "id": "peek-right",
+      "label": "Peek ▶"
+    },
+    {
+      "kind": "button",
+      "bindings": ["pad:128"],
+      "w": 44,
+      "h": 44,
+      "x": 0.925,
+      "y": 0.1,
+      "id": "melee",
+      "label": "Melee"
+    },
+    {
+      "role": "menu",
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:32"],
+      "w": 60,
+      "h": 34,
+      "x": 0.43,
+      "y": 0.07,
+      "id": "map",
+      "label": "Map"
+    },
+    {
+      "role": "menu",
+      "shape": "pill",
+      "kind": "button",
+      "bindings": ["pad:16"],
+      "w": 60,
+      "h": 34,
+      "x": 0.57,
+      "y": 0.07,
+      "id": "menu",
+      "label": "Menu"
+    }
+  ]
+}
