@@ -138,6 +138,28 @@ Layouts are data, never code. Nebula checks every download again (size cap, know
 values only, the checksum from `index.json`) before it shows a preview, and nothing is saved until
 you tap **Add**.
 
+## Support
+
+If the layout library is useful to you, you can support its development.
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="50%">
+        <b>🌍 Anywhere in the world</b><br/><br/>
+        <a href="https://github.com/sponsors/F-e-n-y-x"><img src="https://img.shields.io/badge/GitHub%20Sponsors-Fenyx-a855f7?style=flat-square&logo=githubsponsors&logoColor=white" alt="GitHub Sponsors"></a><br/><br/>
+        <sub>One-time or monthly, by card, through GitHub.</sub>
+      </td>
+      <td align="center" width="50%">
+        <b>🇮🇳 India (UPI)</b><br/><br/>
+        <img src="https://img.shields.io/badge/Google%20Pay-UPI-6d1fb8?style=flat-square&logo=googlepay&logoColor=white" alt="Google Pay UPI"><br/><br/>
+        <img src="docs/images/support/googlepay-upi.png" alt="Google Pay UPI QR code" width="200"/><br/>
+        <sub>UPI ID: <code>ayushsoni2911@okaxis</code></sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## License
 
 Layouts in this repository are released under [CC0 1.0](LICENSE): anyone may use, change and share
